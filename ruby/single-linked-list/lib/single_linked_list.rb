@@ -32,19 +32,30 @@ class SingleLinkedList
     data
   end
 
+#  didn't use recursion but was fewer lines of code
+#  def list
+#    last = @current
+#    @current = @head
+#    return_value = Array.new()
+#    while return_value.length < @length
+#      self.next {|data|
+#        return_value.push(data)
+#      }
+#    end
+#    @current = last
+#    return_value
+#  end
+
+
   def list
     last = @current
     @current = @head
     return_value = Array.new()
-    while return_value.length < @length
-      self.next {|data|
-        return_value.push(data)
-      }
-    end
+    forward_by_recursion(return_value)
     @current = last
     return_value
   end
-
+  
 
   def list_reverse
     last = @current
@@ -63,5 +74,14 @@ class SingleLinkedList
         values.push(local_element)
       end
     end
+
+    def forward_by_recursion(values)
+      local_element = self.next 
+      unless local_element.nil?
+        values.push(local_element)
+        reverse_by_recursion(values)
+      end
+    end
+
 
 end
