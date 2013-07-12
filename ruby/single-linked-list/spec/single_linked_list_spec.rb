@@ -96,6 +96,22 @@ describe SingleLinkedList do
       recursion_time.should > closure_time
     end
     
+    it "should not raise error when using closure" do
+      (1..100000).each { |a_number|
+        @list.add(a_number.to_s)
+      }
+
+      lambda { @list.list_no_recursion()}.should_not raise_error
+    end
+
+    it "should raise error when using closure" do
+      (1..100000).each { |a_number|
+        @list.add(a_number.to_s)
+      }
+
+      lambda { @list.list()}.should raise_error
+    end
+
 
   end
 
