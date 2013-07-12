@@ -13,17 +13,17 @@ class SingleLinkedList
   end
 
   def last()
-    @last = @head
     last_by_recursion(@head)
-    @last
   end        
 
   private
     def last_by_recursion(element)
       unless element.nil?
-        @last = element
-        last_by_recursion(element.next_node)
+        unless element.next_node.nil?
+          last_by_recursion(element.next_node)
+        else
+          element
+        end
       end
     end
-
 end
