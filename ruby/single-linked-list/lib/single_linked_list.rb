@@ -32,19 +32,19 @@ class SingleLinkedList
     data
   end
 
-#  didn't use recursion but was fewer lines of code
-#  def list
-#    last = @current
-#    @current = @head
-#    return_value = Array.new()
-#    while return_value.length < @length
-#      self.next {|data|
-#        return_value.push(data)
-#      }
-#    end
-#    @current = last
-#    return_value
-#  end
+ # didn't use recursion but was fewer lines of code
+  def list_no_recursion
+    last = @current
+    @current = @head
+    return_value = Array.new()
+    while return_value.length < @length
+      self.next {|data|
+        return_value.push(data)
+      }
+    end
+    @current = last
+    return_value
+  end
 
 
   def list

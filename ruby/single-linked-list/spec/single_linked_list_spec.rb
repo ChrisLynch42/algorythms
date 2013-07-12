@@ -21,7 +21,15 @@ describe SingleLinkedList do
       SingleLinkedList.method_defined?(:list).should be_true
     end
 
-    it "should have method 'list_reverse'" do
+    it "should have method 'list_no_recursion'" do
+      SingleLinkedList.method_defined?(:list).should be_true
+    end
+
+    it "should have method 'list_no_recursion'" do
+      SingleLinkedList.method_defined?(:list_no_recursion).should be_true
+    end
+
+    it "should have method 'list_reverse'" do    
       SingleLinkedList.method_defined?(:list_reverse).should be_true
     end
 
@@ -58,11 +66,36 @@ describe SingleLinkedList do
       @list.list().should =~ element_array()
     end
 
+    it "should return '#{element_array()}' when 'list_no_recursion()' is called" do
+      add_elements(@list)
+      @list.list_no_recursion().should =~ element_array()
+    end
+
+
     it "should return '#{reverse_element_array()}' when 'list_reverse()' is called" do
       add_elements(@list)
       @list.list_reverse().should =~ reverse_element_array()
     end
 
+    it "should take less time for list to run than list_no_recursion" do
+      (1..1000).each { |a_number|
+        @list.add(a_number.to_s)
+      }
+
+      start_time=Time.now
+      @list.list_no_recursion()
+      end_time=Time.now
+      closure_time=end_time.to_f - start_time.to_f
+
+
+      start_time=Time.now
+      @list.list()
+      end_time=Time.now
+      recursion_time=end_time.to_f - start_time.to_f
+
+      recursion_time.should > closure_time
+    end
+    
 
   end
 
