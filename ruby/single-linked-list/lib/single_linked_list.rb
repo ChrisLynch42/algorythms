@@ -1,31 +1,29 @@
 require 'single_linked_list_element'
 
 class SingleLinkedList
-  attr_reader :head, :current, :tail
-
-  def initialize
-  end
+  attr_reader :head
 
   def add(element)
     if @head.nil?
-      @head=element
-      @tail=element
-      @current=element
+      @head = element
     else
-      @tail.next_node=element
-      @tail=element
+      last_element=last()
+      last_element.next_node=element
     end
   end
 
-  def next
-    unless @current.nil?
-      return_value = @current
-      @current = @current.next_node
+  def last()
+    @last = @head
+    last_by_recursion(@head)
+    @last
+  end        
+
+  private
+    def last_by_recursion(element)
+      unless element.nil?
+        @last = element
+        last_by_recursion(element.next_node)
+      end
     end
-    if block_given?
-      yield return_value
-    end
-    return_value
-  end
 
 end

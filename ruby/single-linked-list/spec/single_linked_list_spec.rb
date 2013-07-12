@@ -4,12 +4,12 @@ require 'single_linked_list_spec_helper'
 describe SingleLinkedList do
 
   describe "Class" do
-    it "should have method 'add'" do
-      SingleLinkedList.method_defined?(:add).should be_true
+    it "should have method 'last'" do
+      SingleLinkedList.method_defined?(:last).should be_true
     end
 
-    it "should have method 'next'" do
-      SingleLinkedList.method_defined?(:next).should be_true
+    it "should have method 'add'" do
+      SingleLinkedList.method_defined?(:add).should be_true
     end
   end
 
@@ -19,14 +19,18 @@ describe SingleLinkedList do
       @list = SingleLinkedList.new()
     end
 
-    it "should not return nil when 'next()' is called" do
+    it "should return nil when 'last()' is called" do
+      @list.last().should be_nil
+    end
+
+    it "should not return nil when 'last()' is called" do
       add_elements(@list)
-      @list.next().should_not be_nil
+      @list.last().should_not be_nil
     end
     
-    it "should return 'one' when 'next().data' is called" do
+    it "should return 'four' when 'last().data' is called" do
       add_elements(@list)
-      @list.next().data.should == "one"
+      @list.last().data.should == "four"
     end    
 
   end
