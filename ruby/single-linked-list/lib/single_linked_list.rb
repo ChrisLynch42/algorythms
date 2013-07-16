@@ -16,7 +16,11 @@ class SingleLinkedList
     last_element=SingleLinkedListElement.new()
     last_by_recursion(@head,last_element)
     last_element.next_node
-  end        
+  end 
+
+  def length()
+    length_by_recursion(@head,0)
+  end  
 
   private
     def last_by_recursion(element,last_element)
@@ -27,4 +31,13 @@ class SingleLinkedList
         end
       end
     end
+
+    def length_by_recursion(element,count)
+      unless element.nil?
+        count = count + 1
+        length_by_recursion(element.next_node,count)
+      else
+        count
+      end
+    end    
 end

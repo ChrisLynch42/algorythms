@@ -11,6 +11,10 @@ describe SingleLinkedList do
     it "should have method 'add'" do
       SingleLinkedList.method_defined?(:add).should be_true
     end
+
+    it "should have method 'length'" do
+      SingleLinkedList.method_defined?(:length).should be_true
+    end    
   end
 
   describe "Instance" do
@@ -31,7 +35,12 @@ describe SingleLinkedList do
     it "should return 'four' when 'last().data' is called" do
       add_elements(@list)
       @list.last().data.should == "four"
-    end    
+    end 
+
+     it "should return 4 when 'length' is called" do
+      add_elements(@list)
+      @list.length().should == 4
+    end   
 
   end
 
