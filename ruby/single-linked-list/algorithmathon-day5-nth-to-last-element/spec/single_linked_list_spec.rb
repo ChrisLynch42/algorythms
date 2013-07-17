@@ -77,5 +77,11 @@ describe SingleLinkedList do
       @list.retrieve(-1).eql?(target).should be_true
     end
 
+    it "should return the head when 'retrieve(-1)' is called" do
+      target = SingleLinkedListElement.new("target")
+      @list.add(target)
+      @list.retrieve(-1).eql?(target).should be_true
+    end
+
   end
 end

@@ -29,9 +29,11 @@ class SingleLinkedList
     if position_count > 0
       retrieve_forward_by_recursion(@head,position_count,0)
     else
-      count = length()
-      count = count + position_count + 1
-      retrieve_forward_by_recursion(@head,count,0)
+#      count = length()
+#      count = count + position_count + 1
+#      retrieve_forward_by_recursion(@head,count,0)
+      position_count = position_count * -1
+      retrieve_nth_from_forward_by_recursion(@head,Array.new(),position_count,0)
     end
   end
 
@@ -58,11 +60,27 @@ class SingleLinkedList
       unless element.nil?
         current_count=current_count + 1
         if current_count == position_count
-          puts element.data
           element
         else
           retrieve_forward_by_recursion(element.next_node,position_count,current_count)
         end
       end
     end
+
+    def retrieve_nth_from_forward_by_recursion(element,nth_elements,position_count,current_count)
+      unless element.nil?
+        current_count = current_count + 1
+        if current_count >= position_count
+          nth_elements.push(element)
+          if nth_elements.length > position_count
+            nth_elements.delete_at(0)
+          end
+        end
+        retrieve_nth_from_forward_by_recursion(element.next_node,nth_elements,position_count,current_count)        
+      else
+        if nth_elements.length > 0
+          nth_elements[0]
+        end
+      end
+    end    
 end
