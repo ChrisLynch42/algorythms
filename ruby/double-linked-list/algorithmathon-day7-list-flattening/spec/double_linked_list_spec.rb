@@ -61,12 +61,29 @@ describe DoubleLinkedList do
       list.element_at(11).child.length().should == 16
     end     
 
-    it "should build a flat list with a length of 42" do
+    it "should have a length of 42 when it receives the 'flatten!' message" do
       list = build_master_list()
       list.flatten!()
       list.length().should == 42
-    end     
-   
+    end 
+
+    it "should return '13' when it receives the message 'element_at(12).data'" do
+      list = build_master_list()
+      list.flatten!()
+      list.element_at(1).data.should == '13'
+    end 
+
+    it "should return '18' when it receives the message 'element_at(6).data'" do
+      list = build_master_list()
+      list.flatten!()
+      list.element_at(6).data.should == '18'
+    end
+
+    it "should return '2' when it receives the message 'element_at(7).data'" do
+      list = build_master_list()
+      list.flatten!()
+      list.element_at(7).data.should == '2'
+    end   
   end
 
 end
