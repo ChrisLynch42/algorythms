@@ -57,14 +57,17 @@ describe DoubleLinkedList do
       list = build_master_list()
       list.length().should == 12
       list.element_at(0).child.length().should == 6
+      list.element_at(0).child.last().child.length().should == 8
       list.element_at(4).child.length().should == 8
-      list.element_at(11).child.length().should == 16
+      list.element_at(4).child.element_at(2).child.length().should == 8
+      list.element_at(11).child.length().should == 3
+      list.element_at(11).child.element_at(0).child.length().should == 6
     end     
 
-    it "should have a length of 42 when it receives the 'flatten!' message" do
+    it "should have a length of 51 when it receives the 'flatten!' message" do
       list = build_master_list()
       list.flatten!()
-      list.length().should == 42
+      list.length().should == 51
     end 
 
     it "should return '13' when it receives the message 'element_at(12).data'" do
@@ -79,11 +82,37 @@ describe DoubleLinkedList do
       list.element_at(6).data.should == '18'
     end
 
-    it "should return '2' when it receives the message 'element_at(7).data'" do
+    it "should return '19' when it receives the message 'element_at(7).data'" do
       list = build_master_list()
       list.flatten!()
-      list.element_at(7).data.should == '2'
-    end   
+      list.element_at(7).data.should == '19'
+    end 
+
+    it "should return '5' when it receives the message 'element_at(18).data'" do
+      list = build_master_list()
+      list.flatten!()
+      list.element_at(18).data.should == '5'
+    end
+
+    it "should return '27' when it receives the message 'element_at(19).data'" do
+      list = build_master_list()
+      list.flatten!()
+      list.element_at(19).data.should == '27'
+    end
+
+
+    it "should return '51' when it receives the message 'element_at(48).data'" do
+      list = build_master_list()
+      list.flatten!()
+      list.element_at(48).data.should == '51'
+    end 
+
+    it "should return '45' when it receives the message 'element_at(50).data'" do
+      list = build_master_list()
+      list.flatten!()
+      list.element_at(50).data.should == '45'
+    end
+
   end
 
 end

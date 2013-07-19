@@ -22,8 +22,20 @@ end
 
 def build_master_list()
   the_list=build_list((1..12))
-  the_list.element_at(0).child=build_list(13..18)
-  the_list.element_at(4).child=build_list(19..26)
-  the_list.element_at(11).child=build_list(27..42)
+  first_child_list=build_list(13..18)
+  second_child_list=build_list(19..26)
+  first_child_list.last().child=second_child_list
+  the_list.element_at(0).child=first_child_list
+
+  first_child_list=build_list(27..34)
+  second_child_list=build_list(35..42)
+  first_child_list.element_at(2).child=second_child_list
+  the_list.element_at(4).child=first_child_list
+
+
+  first_child_list=build_list(43..45)
+  second_child_list=build_list(46..51)
+  first_child_list.element_at(0).child=second_child_list  
+  the_list.element_at(11).child=first_child_list
   the_list
 end
