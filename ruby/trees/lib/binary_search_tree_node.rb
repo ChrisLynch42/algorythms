@@ -47,16 +47,5 @@ class BinarySearchTreeNode
     end
   end 
 
-  def greater_than?(target_node)
-    if target_node.nil?
-      raise "The target_node is nil!"
-    else
-      if @data > target_node.data
-        true
-      else
-        false
-      end
-    end
-  end 
 
 end
