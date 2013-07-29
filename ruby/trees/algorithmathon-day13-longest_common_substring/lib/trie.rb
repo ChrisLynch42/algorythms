@@ -12,15 +12,12 @@ class Trie
   end
 
   def add_suffixes(new_string,marker)
-    puts 'add suffix start'
     unless new_string.nil? || new_string.length < 1
       string_end=new_string.length-1
       for counter in 0..string_end
-        puts new_string[counter..string_end]
         add(new_string[counter..string_end],marker)
       end
     end
-    puts 'add suffix end'
   end
 
   def longest_common_substring(string_zero, string_one)
@@ -52,18 +49,11 @@ class Trie
   end
 
   def longest_common_substring_by_recursion()
-    puts 'begin'
     root_end=@root.length-1
     latest_stack=Array.new()
     for counter in 65..root_end
       unless @root[counter].nil?
-        puts counter
-        puts counter.chr
-        puts 'markers'
-        puts @root[counter][1][0]
-        puts @root[counter][1][1]
         if @root[counter][1][0] && @root[counter][1][1]
-          puts 'follow'
           tracking_stack=Array.new()
           tracking_stack.push(counter.chr)
           longest_common_substring_by_recursion_follow_branch(@root[counter],tracking_stack)
