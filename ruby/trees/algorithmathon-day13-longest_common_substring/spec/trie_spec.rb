@@ -131,7 +131,7 @@ describe Trie do
 
     end
 
-    describe "Add_suffix method tests" do
+    describe "Longest common substring method tests" do
       it "should return 'bcd' when Trie.longest_common_substring(ABCD,BCDE)  is called" do
         trie= Trie.new()
         trie.longest_common_substring('ABCD','BCDE').should == 'BCD'
