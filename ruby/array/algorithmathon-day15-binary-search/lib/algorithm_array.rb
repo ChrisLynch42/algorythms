@@ -14,8 +14,14 @@ class AlgorithmArray < Array
 
   private
 
+  #Find the location of the matching element in the array.
+  #
+  #* *Args*    :
+  #+search_object+:: The object being looked for.
+  #* *Returns* :
+  #  - an integer representing the location in the array the matching element is located or nil if it is not found.               
   def new_find_by_recursion(search_object,search_location,high,low)
-    if search_location >= self.length || search_location < 0
+    if search_location >= self.length || search_location < 0 || high == low
       return
     end
     if self[search_location] < search_object

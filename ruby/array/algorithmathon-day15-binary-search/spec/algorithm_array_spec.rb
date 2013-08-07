@@ -30,7 +30,11 @@ describe AlgorithmArray do
 
       it "should return 4 when 'new_find(13)' is called" do
         @array.new_find(13).should == 4
-      end    
+      end 
+
+      it "should return nil when 'new_find(443)' is called" do
+        @array.new_find(443).should be_nil
+      end      
     end
 
     describe "Start search from end location" do
