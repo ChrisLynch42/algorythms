@@ -18,6 +18,9 @@ class AlgorithmArray < Array
   #
   #* *Args*    :
   #+search_object+:: The object being looked for.
+  #+search_location+:: The location in the array to compare values.
+  #+high+:: Tracks the lowest location in the array that is know to contain a value greater than the search_object.
+  #+high+:: Tracks the highest location in the array that is know to contain a value less than the search_object.
   #* *Returns* :
   #  - an integer representing the location in the array the matching element is located or nil if it is not found.               
   def new_find_by_recursion(search_object,search_location,high,low)
