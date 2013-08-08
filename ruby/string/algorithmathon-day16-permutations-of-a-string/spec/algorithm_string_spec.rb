@@ -14,6 +14,7 @@ describe AlgorithmString do
     end
 
     it "should not return nil when 'permutate()' is called" do
+      @string = AlgorithmString.new('ABC')
       @string.permutate().should_not be_nil
     end
 
@@ -21,8 +22,9 @@ describe AlgorithmString do
       @string = AlgorithmString.new('ABC')
       @string.permutate().length.should == 6
     end 
-     it "should return 24 when 'permutate()' is called" do
-      @string = AlgorithmString.new('ABCDEF')
+  
+    it "should return 24 when 'permutate()' is called" do
+      @string = AlgorithmString.new('ABCD')
       @string.permutate().length.should == 24
     end   
   end
