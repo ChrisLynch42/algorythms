@@ -25,7 +25,7 @@ describe AlgorithmString do
   
     it "should return 24 when 'permutate()' is called" do
       @string = AlgorithmString.new('ABCD')
-      @string.permutate().length.should == 24
+      @string.permutate2().length.should == 24
     end   
   end
 

@@ -5,9 +5,17 @@ class AlgorithmString < String
   #
   #  - returns an array with all the possible orderings.
   def permutate()
-    @nomore=0
     return_array = Array.new()
     permutate_by_recursion(return_array,Array.new(),Array.new(),0)
+    return_array
+  end
+
+  def permutate2()
+    puts 'begin'
+    @nomore=0
+    return_array = Array.new()
+    string_array = self.split('')
+    permutate_by_recursion2(return_array,string_array,0)
     puts return_array
     return_array
   end
@@ -17,19 +25,13 @@ class AlgorithmString < String
     final_position= self.length - 1
 
     if current_position > final_position
-      puts 'end'
-      puts build_array.join()
       return_array[return_array.length]=build_array.join()
       return
     end
     
-    for i in 0..(self.length-1)
-      puts "i=#{i}"
-      @nomore = @nomore + 1
-      puts "nomore=#{@nomore}"
+    for i in 0..final_position
       unless tracking_array[i]
         build_array.push(self[i])
-        puts build_array.join()
         tracking_array[i]=true
         permutate_by_recursion(return_array,build_array,tracking_array,current_position + 1)
         build_array.pop()
@@ -38,9 +40,27 @@ class AlgorithmString < String
     end
   end
 
-  def switch_characters(string_array,position_one,position_two)
-    character_holder=string_array[position_one]
-    string_array[position_one]=string_array[position_two]
-    string_array[position_two]=character_holder
+  def permutate_by_recursion2(return_array, string_array, current_position)
+    final_position= self.length - 1
+
+    if current_position > final_position
+      return_array[return_array.length]=string_array.join()
+      return
+    end
+    
+    for i in current_position..final_position
+       @nomore = @nomore + 1
+       puts @nomore
+        puts string_array.join()
+        switch_character(string_array,current_position,i)
+        permutate_by_recursion2(return_array,string_array,current_position + 1)
+        switch_character(string_array,current_position,i)
+    end
+  end  
+
+  def switch_character(string_array,first,second)    
+    value_holder=string_array[second]
+    string_array[second]=string_array[first]
+    string_array[first]=value_holder
   end
 end
