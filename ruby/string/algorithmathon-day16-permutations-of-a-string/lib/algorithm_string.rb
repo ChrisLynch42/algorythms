@@ -79,8 +79,8 @@ class AlgorithmString < String
   end
 
   def permutate_by_recursion3(return_array, string_array, string_value)
-    if string_array.nil?  || string_array.length < 1
-      return_array[return_array.length]=string_value
+    if string_array.length == 1
+      return_array[return_array.length]=string_value + string_array[0]
       return
     end
     string_array.each_with_index { | value, index |
