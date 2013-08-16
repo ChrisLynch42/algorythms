@@ -37,6 +37,14 @@ describe AlgorithmString do
       AlgorithmString.method_defined?(:permutate).should be_true
     end
 
+    it "should have method 'permutate2'" do
+      AlgorithmString.method_defined?(:permutate2).should be_true
+    end
+
+    it "should have method 'permutate3'" do
+      AlgorithmString.method_defined?(:permutate3).should be_true
+    end
+
     it "should have method 'iteration_count'" do
       AlgorithmString.method_defined?(:iteration_count).should be_true
     end    
@@ -44,27 +52,22 @@ describe AlgorithmString do
 
   describe "Instance" do
 
-
-
     describe "'ABC' permutations" do
       it_should_behave_like "a permutation", "ABC","permutate", 6 
       it_should_behave_like "a permutation", "ABC","permutate2", 6 
       it_should_behave_like "a permutation", "ABC","permutate3", 6 
-      it_should_behave_like "a permutation", "ABC","permutate4", 6 
 
     end
     describe "'ABCD' permutations" do
       it_should_behave_like "a permutation", "ABCD","permutate", 24 
       it_should_behave_like "a permutation", "ABCD","permutate2", 24 
       it_should_behave_like "a permutation", "ABCD","permutate3", 24
-      it_should_behave_like "a permutation", "ABCD","permutate4", 24
 
     end
     describe "'ABCDE' permutations" do
       it_should_behave_like "a permutation", "ABCDE","permutate", 120
       it_should_behave_like "a permutation", "ABCDE","permutate2", 120
       it_should_behave_like "a permutation", "ABCDE","permutate3", 120
-      it_should_behave_like "a permutation", "ABCDE","permutate4", 120
 
     end    
   end 
