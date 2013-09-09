@@ -6,12 +6,9 @@ describe AlgorithmString do
     it "should have method 'longest_common_substring'" do
       AlgorithmString.method_defined?(:longest_common_substring).should be_true
     end    
-
   end
 
   describe "Instance" do
-
-
     describe "Longest common substring method tests" do
       it "should return 'bcd' when ABCD.longest_common_substring(BCDE)  is called" do
         a_string= AlgorithmString.new('ABCD')
@@ -28,9 +25,5 @@ describe AlgorithmString do
         a_string.longest_common_substring('TSVPFGHARS').should == 'FGH'
       end     
     end
-
-
-
   end
-
 end
