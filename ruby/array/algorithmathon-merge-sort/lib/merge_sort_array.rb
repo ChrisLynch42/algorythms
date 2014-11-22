@@ -40,28 +40,42 @@ class MergeSortArray < Array
   end
 
   def merge_arrays(array_one, array_two)
-    end_index = array_one.length - 1
-    for i in 0..end_index
-      if array_two.length > index
+    return_array = []
+    index = 0
+    while array_one.length > 0 || array_two.length > 0
+      if array_one.length > 0 && array_two.length > 0
+        puts "array one #{array_one[index]}"
+        puts "array two #{array_two[index]}"
         if array_one[index] > array_two[index]
-          return_array[return_index] = array_two[index]
-          return_index = return_index + 1
-          return_array[return_index] = array_two_value
-
-
-          array_one.insert(index,array_two_value)
-          array_two_value = array_two.shift
+          add_to_array(return_array, array_two.shift,array_one.shift)
+        else
+          add_to_array(return_array, array_one.shift,array_two.shift)
         end
-        puts "return_array #{return_array.to_s}"
       else
-        return_array[index] = array_one[index]
+        if array_one.length > 0
+          puts "array one #{array_one[index]}"
+          add_array_to_array(return_array,array_one)
+        end
+        if array_two.length > 0
+          puts "array two #{array_one[index]}"
+          add_array_to_array(return_array,array_two)
+        end
       end
     end
     return_array
   end
 
-  def insert_into_array(the_array,index,value)
-    the
+  def add_to_array(target_array,value_one, value_two)
+    target_array[target_array.length] = value_one
+    target_array[target_array.length] = value_two
+    puts "target_array #{target_array.to_s}"
   end
+
+  def add_array_to_array(target_array,source_array)
+    while source_array.length > 0
+      target_array[target_array.length] = source_array.shift
+    end
+  end
+
 
 end

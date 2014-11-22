@@ -32,8 +32,21 @@ describe MergeSortArray do
         @array_result = [1,2,3,4]
       end
 
+      it "should have a return_array equal to [1,2] when add_to_array([],1,2) message is sent" do
+        return_array = []
+        @merge_instance.add_to_array(return_array,1,2)
+        expect(return_array).to eq([1,2])
+      end
+
+      it "should have a return_array equal to [1,2] when add_to_array([],1,2) message is sent" do
+        return_array = [1,2]
+        @merge_instance.add_array_to_array(return_array,[1,2])
+        expect(return_array).to eq([1,2,1,2])
+      end
+
+
       it "should return #{@array_result.to_s} when #{@array_one.to_s} and #{@array_two.to_s} is sent to merge_arrays" do
-        expect(@merge_instance.merge_arrays(@array_one,@array_two)).to equal(@array_result)
+        expect(@merge_instance.merge_arrays(@array_one,@array_two)).to eq(@array_result)
       end
 
     end
