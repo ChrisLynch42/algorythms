@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../algorithmathon-bubble-sort/.idea/algorithmathon-bubble-sort.iml" filepath="$PROJECT_DIR$/../algorithmathon-bubble-sort/.idea/algorithmathon-bubble-sort.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/algorithmathon-merge-sort.iml" filepath="$PROJECT_DIR$/.idea/algorithmathon-merge-sort.iml" />
+    </modules>
+  </component>
+</project>
+
